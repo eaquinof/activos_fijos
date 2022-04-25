@@ -13,4 +13,4 @@ CREATE TABLE IF NOT EXISTS `Activos`.`Empleado` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
-CREATE INDEX `fk_depto_idx` ON `Activos`.`Empleado` (`Departamento` ASC) VISIBLE;
+CREATE INDEX `fk_depto_idx` ON `Activos`.`Empleado` (`Departamento` ASC);

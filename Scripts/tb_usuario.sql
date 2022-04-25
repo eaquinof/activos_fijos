@@ -12,4 +12,4 @@ CREATE TABLE IF NOT EXISTS `Activos`.`Usuario` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
-CREATE INDEX `fk_rol_idx` ON `Activos`.`Usuario` (`idRol` ASC) VISIBLE;
+CREATE INDEX `fk_rol_idx` ON `Activos`.`Usuario` (`idRol` ASC);

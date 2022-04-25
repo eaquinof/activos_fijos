@@ -12,6 +12,6 @@ CREATE TABLE IF NOT EXISTS `Activos`.`Asignacion` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
-CREATE INDEX `ffk_empleado_idx` ON `Activos`.`Asignacion` (`idEmpleado` ASC) VISIBLE;
+CREATE INDEX `ffk_empleado_idx` ON `Activos`.`Asignacion` (`idEmpleado` ASC) ;
 
-CREATE INDEX `fk_activo_idx` ON `Activos`.`Asignacion` (`idActivo` ASC) VISIBLE;
+CREATE INDEX `fk_activo_idx` ON `Activos`.`Asignacion` (`idActivo` ASC) ;
