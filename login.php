@@ -1,3 +1,32 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    header('Location: ./listado.php');
+}
+require 'model/conexion.php';
+
+if (!empty($_POST['usuario']) && !empty($_POST['clave'])) {
+    $records = $bd->prepare('SELECT codusr, usuariocol, password FROM usuario WHERE usuariocol = :usuariocol');
+    $records->bindParam(':usuariocol', $_POST['usuario']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $message = '';
+
+    if (count($results) > 0 && ($_POST['clave'] == $results['password'])) {
+        $_SESSION['user_id'] = $results['codusr'];
+        header("Location: ./listado.php");
+    } else {
+        echo "test";
+        $message = '';
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,23 +60,10 @@
             <div class="middle">
                 <div id="login">
 
-                    <form action=<?= $_SERVER['PHP_SELF'];?> method="post" validate="true" id="loginForm">
-                    <input type=hidden name=op value="conectar" />
-
-                    <fieldset class="clearfix">
-
+                     <form action="login.php" method="POST">
                         <p><span class="fa fa-user"></span><input type="text" name="usuario" Placeholder="Usuario" required></p>
-                        <!-- JS because of IE support; better: placeholder="Usuario" -->
                         <p><span class="fa fa-lock"></span><input type="password" name="clave" Placeholder="Clave" required></p>
-                        <!-- JS because of IE support; better: placeholder="Clave" -->
-
-                        <div>
-                        <!--<span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#">Forgot password?</a></span>-->
-                        <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit"
-                            value="Ingresar"></span>
-                        </div>
-                    </fieldset>
-                    <div class="clearfix"></div>
+                        <input type="submit" value="Submit">
                     </form>
 
                     <div class="clearfix"></div>
@@ -63,7 +79,7 @@
         <div>
             <!-- PIE DE PÁGINA -->
             <footer id="footer">
-                <p>Grupo 2 Ingenieria de Software UMG Portales &copy; <?= date('Y') ?></p>
+                <p>Grupo 2 Ingenieria de Software UMG Portales &copy; <?=date('Y')?></p>
             </footer>
         </div>
     </div>
