@@ -1,5 +1,8 @@
-<?php include 'template/header.php' ?>
-
+<?php
+include 'template/header.php';
+include 'template/navbar.php';
+include "config/conexion.php";
+?>
 <?php
     if(!isset($_GET['idActivo'])){
         header('Location: index.php?mensaje=error');
@@ -14,10 +17,9 @@
     $activo = $sentencia->fetch(PDO::FETCH_OBJ);
     //print_r($persona);
 ?>
-
-<div class="container mt-5">
-    
-    <div class="row justify-content-center">
+<div class="container-fluid">
+    <div class="row flex-nowrap ">
+    <?php include 'template/sidebar.php' ?>
     
         <div class="col-md-4">
             <div class="card">

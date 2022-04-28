@@ -67,7 +67,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['clave'])) {
                                     required></p>
                             <p>
                                 <span class="fa fa-building"></span>
-                                <select class="input-select" style="background-color: #fff; border-radius: 0px 3px 3px 0px; color: #000; margin-bottom: 1em; padding:16px; width: 200px; height:50px;" id="empresa" name="empresa">
+                                <select class="input-select" style="background-color: #fff; border-radius: 0px 3px 3px 0px; color: #000; margin-bottom: 1em; padding:16px; width: 200px; height:50px;" id="empresa" name="empresa" required>
                                     <option value="0"> Seleccione la empresa </option>
                                     <?php
                                         $record = $bd->query("SELECT * FROM empresa");

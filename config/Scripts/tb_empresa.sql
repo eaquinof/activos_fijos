@@ -9,5 +9,4 @@ CREATE TABLE IF NOT EXISTS `Activos`.`empresa` (
   `dbempresa` VARCHAR(50) NULL DEFAULT NULL,
   PRIMARY KEY (`idempresa`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb3;
