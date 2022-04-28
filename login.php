@@ -19,7 +19,6 @@ if (!empty($_POST['usuario']) && !empty($_POST['clave'])) {
         $_SESSION['user_id'] = $results['codusr'];
         header("Location: ./home.php");
     } else {
-        echo "test";
         $message = '';
     }
 }
