@@ -1,6 +1,6 @@
 <?php
 include 'template/header.php';
-include "model/conexion.php";
+include "config/conexion.php";
 $sentencia = $bd->query("select * from Activo");
 $Activo = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>

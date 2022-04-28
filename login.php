@@ -16,10 +16,10 @@ if (!empty($_POST['usuario']) && !empty($_POST['clave'])) {
     $message = '';
 
     if (count($results) > 0 && ($_POST['clave'] == $results['password'])) {
+        // Aqui se puede agregar un $_SESSION con la columna de la empresa al momento de logearse
         $_SESSION['user_id'] = $results['codusr'];
         header("Location: ./home.php");
     } else {
-        echo "test";
         $message = '';
     }
 }
