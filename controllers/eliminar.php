@@ -1,10 +1,10 @@
 <?php 
     if(!isset($_GET['idActivo'])){
-        header('Location: index.php?mensaje=error');
+        header('Location: ../index.php?mensaje=error');
         exit();
     }
 
-    include 'model/conexion.php';
+    include '../config/conexion.php';
     $idActivo = $_GET['idActivo'];
 
     $sentencia = $bd->prepare("DELETE FROM Activo where idActivo = ?;");

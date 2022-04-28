@@ -6,7 +6,7 @@
         exit();
     }
 
-    include_once 'model/conexion.php';
+    include_once 'config/conexion.php';
     $idActivo = $_GET['idActivo'];
 
     $sentencia = $bd->prepare("select * from Activo where idActivo = ?;");

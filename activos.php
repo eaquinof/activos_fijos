@@ -1,5 +1,6 @@
 <?php
 include 'template/header.php';
+include 'template/navbar.php';
 include "config/conexion.php";
 $sentencia = $bd->query("select * from Activo");
 $Activo = $sentencia->fetchAll(PDO::FETCH_OBJ);
@@ -107,7 +108,7 @@ $Activo = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                             <td><?php echo $dato->FechaCompra; ?></td>
                                             <td><a class="text-success" href="frmcrearactivo.php"><i class="bi bi-plus-square-fill"></i></a></td>
                                             <td><a class="text-warning" href="editar.php?idActivo=<?php echo $dato->idActivo; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                            <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="eliminar.php?idActivo=<?php echo $dato->idActivo; ?>"><i class="bi bi-trash-fill"></i></a></td>
+                                            <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="controllers/eliminar.php?idActivo=<?php echo $dato->idActivo; ?>"><i class="bi bi-trash-fill"></i></a></td>
                                         </tr>
 
                                     <?php

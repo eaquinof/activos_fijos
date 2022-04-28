@@ -18,12 +18,12 @@ if (!empty($_POST['usuario']) && !empty($_POST['clave'])) {
     if (count($results) > 0 && ($_POST['clave'] == $results['password'])) {
         // Aqui se puede agregar un $_SESSION con la columna de la empresa al momento de logearse
         $_SESSION['user_id'] = $results['codusr'];
+        $_SESSION['empresa'] = $_POST['empresa'];
         header("Location: ./home.php");
     } else {
         $message = '';
     }
 }
-
 ?>
 
 
@@ -65,8 +65,18 @@ if (!empty($_POST['usuario']) && !empty($_POST['clave'])) {
                                     required></p>
                             <p><span class="fa fa-lock"></span><input type="password" name="clave" Placeholder="Clave"
                                     required></p>
-                            <p><span class="fa fa-building"></span><input type="text" name="empresa"
-                                    Placeholder="Empresa" required></p>
+                            <p>
+                                <span class="fa fa-building"></span>
+                                <select class="input-select" style="background-color: #fff; border-radius: 0px 3px 3px 0px; color: #000; margin-bottom: 1em; padding:16px; width: 200px; height:50px;" id="empresa" name="empresa">
+                                    <option value="0"> Seleccione la empresa </option>
+                                    <?php
+                                        $record = $bd->query("SELECT * FROM empresa");
+                                        while($row = $record->fetch()) {
+                                            echo '<option value="'.$row['idempresa'].'">'.$row['nombreempresa'].'</option>';
+                                        }
+                                    ?>
+                                </select>
+                            </p>
                             <input type="submit" value="Ingresar">
                         </form>
 
