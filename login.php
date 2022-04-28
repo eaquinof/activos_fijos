@@ -3,13 +3,13 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-    header('Location: ./listado.php');
+    header('Location: ./home.php');
 }
-require 'model/conexion.php';
+require 'config/conexion.php';
 
 if (!empty($_POST['usuario']) && !empty($_POST['clave'])) {
-    $records = $bd->prepare('SELECT codusr, usuariocol, password FROM usuario WHERE usuariocol = :usuariocol');
-    $records->bindParam(':usuariocol', $_POST['usuario']);
+    $records = $bd->prepare('SELECT codusr, usuariocol, password FROM usuario WHERE codusr = :codusr');
+    $records->bindParam(':codusr', $_POST['usuario']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
@@ -17,7 +17,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['clave'])) {
 
     if (count($results) > 0 && ($_POST['clave'] == $results['password'])) {
         $_SESSION['user_id'] = $results['codusr'];
-        header("Location: ./listado.php");
+        header("Location: ./home.php");
     } else {
         echo "test";
         $message = '';
@@ -31,59 +31,63 @@ if (!empty($_POST['usuario']) && !empty($_POST['clave'])) {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ACTIVOS-</title>
-  <link rel="stylesheet" href="assets/css/style_login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACTIVOS-</title>
+    <link rel="stylesheet" href="assets/css/style_login.css">
 </head>
 
 <body>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!------ Include the above in your HEAD tag ---------->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
 
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <!-- Include the above in your HEAD tag -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Include the above in your HEAD tag -->
 
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <div class="main">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <div class="main">
 
 
-    <div class="container">
-        <center>
-            <div id="titulo">
-				<h1>MODULO DE ACTIVOS FIJOS</h1>
-			</div>
-            <div class="middle">
-                <div id="login">
+        <div class="container">
+            <center>
+                <div id="titulo">
+                    <h1>MODULO DE ACTIVOS FIJOS</h1>
+                </div>
+                <div class="middle">
+                    <div id="login">
 
-                     <form action="login.php" method="POST">
-                        <p><span class="fa fa-user"></span><input type="text" name="usuario" Placeholder="Usuario" required></p>
-                        <p><span class="fa fa-lock"></span><input type="password" name="clave" Placeholder="Clave" required></p>
-                        <input type="submit" value="Submit">
-                    </form>
+                        <form action="login.php" method="POST">
+                            <p><span class="fa fa-user"></span><input type="text" name="usuario" Placeholder="Usuario"
+                                    required></p>
+                            <p><span class="fa fa-lock"></span><input type="password" name="clave" Placeholder="Clave"
+                                    required></p>
+                            <p><span class="fa fa-building"></span><input type="text" name="empresa"
+                                    Placeholder="Empresa" required></p>
+                            <input type="submit" value="Ingresar">
+                        </form>
 
-                    <div class="clearfix"></div>
+                        <div class="clearfix"></div>
 
-                </div> <!-- end login -->
-            <div class="logo">
-                <img src="assets/img/logo.png" alt="Logo">
-                <div class="clearfix"></div>
+                    </div> <!-- end login -->
+                    <div class="logo">
+                        <img src="assets/img/logo.png" alt="Logo">
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+            </center>
+            <div>
+                <!-- PIE DE PÁGINA -->
+                <footer id="footer">
+                    <p>Grupo 2 Ingenieria de Software UMG Portales &copy; <?=date('Y')?></p>
+                </footer>
             </div>
-
-            </div>
-        </center>
-        <div>
-            <!-- PIE DE PÁGINA -->
-            <footer id="footer">
-                <p>Grupo 2 Ingenieria de Software UMG Portales &copy; <?=date('Y')?></p>
-            </footer>
         </div>
     </div>
-  </div>
 </body>
 
 </html>

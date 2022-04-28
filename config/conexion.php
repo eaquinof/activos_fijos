@@ -1,7 +1,7 @@
 <?php 
 $contrasena = "";
 $usuario = "root";
-$nombre_bd = "Activos";
+$nombre_bd = "multiempresa";
 
 try {
 	$bd = new PDO (

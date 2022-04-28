@@ -16,13 +16,15 @@
 ?>
 
 <div class="container mt-5">
+    
     <div class="row justify-content-center">
+    
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
                     Editar Activos:
                 </div>
-                <form class="p-4" method="POST" action="editarProceso.php">
+                <form class="p-4" method="POST" action="controllers/editarProceso.php">
                     <div class="mb-3">
                         <label class="form-label">Descripcion: </label>
                         <input type="text" class="form-control" name="txtDescripcion" required 

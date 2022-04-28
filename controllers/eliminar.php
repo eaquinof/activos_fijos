@@ -11,9 +11,9 @@
     $resultado = $sentencia->execute([$idActivo]);
 
     if ($resultado === TRUE) {
-        header('Location: index.php?mensaje=eliminado');
+        header('Location: ../activos.php?mensaje=eliminado');
     } else {
-        header('Location: index.php?mensaje=error');
+        header('Location: ../activos.php?mensaje=error');
     }
     
 ?>

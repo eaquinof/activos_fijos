@@ -1,11 +1,11 @@
 -- -----------------------------------------------------
--- Table `Activos`.`Departamento`
+-- Table `Activos`.`Rol`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Activos`.`Departamento` ;
+DROP TABLE IF EXISTS `Activos`.`Rol` ;
 
-CREATE TABLE IF NOT EXISTS `Activos`.`Departamento` (
-  `idDepto` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `Activos`.`Rol` (
+  `idRol` INT NOT NULL AUTO_INCREMENT,
   `Descripcion` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`idDepto`))
+  PRIMARY KEY (`idRol`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;

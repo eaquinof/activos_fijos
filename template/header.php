@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="../assets/css/sidebar.css">
   </head>
   <body>
-      <div class="container-fluid bg-warning">
+      <div class="container-fluid bg-primary">
           <div class="row">
               <div class="col-md">
                   <header class="py-3">
-                      <h3 class="text-center">INVENTARIO DE ACTIVOS FIJOS</h3>
+                      <h3 class="text-center text-white" >INVENTARIO DE ACTIVOS FIJOS</h3>
                   </header>
               </div>
           </div>

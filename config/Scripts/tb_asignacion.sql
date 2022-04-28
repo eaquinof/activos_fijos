@@ -4,7 +4,7 @@
 DROP TABLE IF EXISTS `Activos`.`Asignacion` ;
 
 CREATE TABLE IF NOT EXISTS `Activos`.`Asignacion` (
-  `idAsginacion` INT NOT NULL,
+  `idAsginacion` INT NOT NULL AUTO_INCREMENT,
   `idEmpleado` INT NULL DEFAULT NULL,
   `idActivo` INT NOT NULL,
   `FechaAsigna` DATETIME NULL DEFAULT NULL,
