@@ -1,7 +1,7 @@
 --empresas
-insert into multiempresa.empresa (nombreempresa, dbempresa) values ('empresa1','Activos');
-insert into multiempresa.empresa (nombreempresa, dbempresa) values ('empresa2','Activos2');
-insert into multiempresa.empresa (nombreempresa, dbempresa) values ('empresa3','Activos3');
+insert into Activos.empresa (nombreempresa) values ('empresa1');
+insert into Activos.empresa (nombreempresa) values ('empresa2');
+insert into Activos.empresa (nombreempresa) values ('empresa3');
 
 --usuarios
 insert into activos.usuario (codusr,password,idrol,usuariocol) values ('eaquino','eaquino',1,'eaquino');

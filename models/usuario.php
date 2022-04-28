@@ -82,7 +82,7 @@ class Usuario{
 	}
 
 	public function getAll(){
-		$usuarios = $this->db->query("SELECT * FROM usuarios ORDER BY id DESC;");
+		$usuarios = $this->db->query("SELECT * FROM usuario ORDER BY id DESC;");
 		return $usuarios;
 	}
 	

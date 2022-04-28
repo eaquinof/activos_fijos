@@ -1,9 +1,9 @@
 -- -----------------------------------------------------
 -- Table `multiempresa`.`emrpesa`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `multiempresa`.`empresa` ;
+DROP TABLE IF EXISTS `Activos`.`empresa` ;
 
-CREATE TABLE IF NOT EXISTS `multiempresa`.`empresa` (
+CREATE TABLE IF NOT EXISTS `Activos`.`empresa` (
   `idempresa` INT NOT NULL AUTO_INCREMENT,
   `nombreempresa` VARCHAR(50) NULL DEFAULT NULL,
   `dbempresa` VARCHAR(50) NULL DEFAULT NULL,
