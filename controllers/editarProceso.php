@@ -4,7 +4,7 @@
         header('Location: ../index.php?mensaje=error');
     }
 
-    include '../model/conexion.php';
+    include '../config/conexion.php';
     $idActivo = $_POST['idActivo'];
     $Descripcion = $_POST['txtDescripcion'];
     $Valor = $_POST['txtValor'];

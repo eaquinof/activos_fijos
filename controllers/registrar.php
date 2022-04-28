@@ -5,7 +5,7 @@
         exit();
     }
 
-    include_once 'model/conexion.php';
+    include '../config/conexion.php';
     //$idActivo = $_POST["txtidActivo"];
     $Descripcion = $_POST["txtDescripcion"];
     $Valor = $_POST["txtValor"];
@@ -15,9 +15,9 @@
     $resultado = $sentencia->execute([$Descripcion,$Valor,$FechaCompra]);
 
     if ($resultado === TRUE) {
-        header('Location: index.php?mensaje=registrado');
+        header('Location: ../activos.php?mensaje=registrado');
     } else {
-        header('Location: index.php?mensaje=error');
+        header('Location: ../activos.php?mensaje=error');
         exit();
     }
     

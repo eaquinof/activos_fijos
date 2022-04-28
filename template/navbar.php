@@ -1,19 +1,25 @@
 <?php
-  session_start();
+session_start();
 
-  require 'config/conexion.php';
-  if(isset($_SESSION['user_id'])) {
+require 'config/conexion.php';
+
+if (isset($_SESSION['user_id']) && isset($_SESSION['empresa'])) {
     $records = $bd->prepare('SELECT codusr FROM usuario WHERE codusr = :codusr');
     $records->bindParam(':codusr', $_SESSION['user_id']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
-    $user  = null;
+    $empresa = $bd->prepare('SELECT nombreempresa FROM empresa where idempresa = :id');
+    $empresa->bindParam(':id', $_SESSION['empresa']);
+    $empresa->execute();
+    $empresaResult = $empresa->fetch(PDO::FETCH_ASSOC);
 
-    if(count($results) > 0) {
-      $user = $results;
+    $user = null;
+
+    if (count($results) > 0) {
+        $user = $results;
     }
-  }
+}
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
@@ -29,17 +35,18 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
-        </li> 
+        </li>
       </ul>
 
         <div class="dropdown me-4">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person"></i> <span class="text-uppercase"> <?= $user['codusr']; ?></span> 
+                <i class="bi bi-person"></i> 
+                <span class="text-uppercase"> <?=$user['codusr'];?></span> | <span class="text-uppercase"><?=$empresaResult['nombreempresa'];?></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
             </ul>
-        </div> 
+        </div>
     </div>
   </div>
 </nav>
