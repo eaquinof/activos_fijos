@@ -1,13 +1,13 @@
 <?php 
     if(!isset($_GET['idActivo'])){
-        header('Location: ../index.php?mensaje=error');
+        header('Location: ../activos.php?mensaje=error');
         exit();
     }
 
     include '../config/conexion.php';
     $idActivo = $_GET['idActivo'];
 
-    $sentencia = $bd->prepare("DELETE FROM Activo where idActivo = ?;");
+    $sentencia = $bd->prepare("DELETE FROM activos.activo where idActivo = ?;");
     $resultado = $sentencia->execute([$idActivo]);
 
     if ($resultado === TRUE) {

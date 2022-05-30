@@ -19,7 +19,10 @@ $Empresa = $sentencia->fetchAll(PDO::FETCH_OBJ);
                     <!-- fin alerta -->
                     <div class="card">
                         <div class="card-header">
-                            Lista de Empresas
+                            <tr>
+                            <td>Lista de Empresas &nbsp;</td>
+                            <td><a class="text-success" href="empresacrear.php"><i class="bi bi-plus-square-fill"></i></a></td>
+                            </tr>
                         </div>
                         <div class="p-4">
                             <table class="table align-middle">
@@ -39,9 +42,8 @@ $Empresa = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                         <tr>
                                             <td scope="row"><?php echo $dato->idempresa; ?></td>
                                             <td><?php echo $dato->nombreempresa; ?></td>
-                                            <td><a class="text-success" href="#"><i class="bi bi-plus-square-fill"></i></a></td>
-                                            <td><a class="text-warning" href="home.php?idempresa=<?php echo $dato->idempresa; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                            <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="home.php?idActivo=<?php echo $dato->idempresa; ?>"><i class="bi bi-trash-fill"></i></a></td>
+                                            <td><a class="text-warning" href="empresaeditar.php?idempresa=<?php echo $dato->idempresa; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                            <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="controllers/eliminarempresa.php?idempresa=<?php echo $dato->idempresa; ?>"><i class="bi bi-trash-fill"></i></a></td>
                                         </tr>
 
                                     <?php
