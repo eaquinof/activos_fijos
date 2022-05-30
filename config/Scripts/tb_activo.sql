@@ -9,8 +9,10 @@ CREATE TABLE IF NOT EXISTS `Activos`.`Activo` (
   `Descripcion` VARCHAR(50) NULL DEFAULT NULL,
   `Valor` INT NULL DEFAULT NULL,
   `FechaCompra` DATE NULL DEFAULT NULL,
-  `Usuario` VARCHAR(50) NULL DEFAULT NULL,
   PRIMARY KEY (`idActivo`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb3;
+
+ALTER TABLE activos.activo
+ ADD empresa INT DEFAULT '1' AFTER FechaCompra;

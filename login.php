@@ -7,15 +7,15 @@ if (isset($_SESSION['user_id'])) {
 }
 require 'config/conexion.php';
 
-if (!empty($_POST['usuario']) && !empty($_POST['clave'])) {
-    $records = $bd->prepare('SELECT codusr, usuariocol, password FROM usuario WHERE codusr = :codusr');
+if (!empty($_POST['usuario']) && !empty($_POST['clave']) && !empty($_POST['empresa'])) {
+    $records = $bd->prepare('SELECT codusr, password FROM activos.usuario WHERE codusr = :codusr');
     $records->bindParam(':codusr', $_POST['usuario']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
     $message = '';
 
-    if (count($results) > 0 && ($_POST['clave'] == $results['password'])) {
+    if ($results && count($results) > 0 && ($_POST['clave'] == $results['password'])) {
         // Aqui se puede agregar un $_SESSION con la columna de la empresa al momento de logearse
         $_SESSION['user_id'] = $results['codusr'];
         $_SESSION['empresa'] = $_POST['empresa'];

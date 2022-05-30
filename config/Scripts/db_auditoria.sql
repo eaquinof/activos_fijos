@@ -1,10 +1,10 @@
 -- -----------------------------------------------------
--- Schema multiempresa
+-- Schema Auditoria
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `multiempresa` ;
+DROP SCHEMA IF EXISTS `auditoria` ;
 
 -- -----------------------------------------------------
--- Schema multiempresa
+-- Schema Auditoria
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `multiempresa` DEFAULT CHARACTER SET utf8 ;
-USE `multiempresa` ;
+CREATE SCHEMA IF NOT EXISTS `auditoria` DEFAULT CHARACTER SET utf8 ;
+USE `auditoria` ;

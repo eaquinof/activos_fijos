@@ -14,75 +14,15 @@ $tasa = $sentencia->fetchAll(PDO::FETCH_OBJ);
                 <div class="col-md-7">
                     <!-- inicio alerta -->
                     <?php
-                    if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'falta') {
+                    include "template/alerta.php";
                     ?>
-
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>Error!</strong> Rellena todos los campos.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    <?php
-                    }
-                    ?>
-
-
-                    <?php
-                    if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado') {
-                    ?>
-
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Registrado!</strong> Se agregaron los datos.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-
-                    <?php
-                    }
-                    ?>
-
-                    <?php
-                    if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'error') {
-                    ?>
-
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>Error!</strong> Vuelve a intentar.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-
-                    <?php
-                    }
-                    ?>
-
-
-
-                    <?php
-                    if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado') {
-                    ?>
-
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Cambiado!</strong> Los datos fueron actualizados.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-
-                    <?php
-                    }
-                    ?>
-
-                    <?php
-                    if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
-                    ?>
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>Eliminado!</strong> Los datos fueron borrados.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-
-                    <?php
-                    }
-                    ?>
-
                     <!-- fin alerta -->
                     <div class="card">
                         <div class="card-header">
-                            Tasas de Cambio
+                        <tr>
+                            <td>Tasas de Cambio &nbsp;</td>
+                            <td><a class="text-success" href="#"><i class="bi bi-plus-square-fill"></i></a></td>
+                        </tr>    
                         </div>
                         <div class="p-4">
                             <table class="table align-middle">
@@ -108,9 +48,8 @@ $tasa = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                             <td><?php echo $dato->simbolo; ?></td>
                                             <td><?php echo $dato->tasa; ?></td>
                                             <td><?php echo $dato->fecha; ?></td>
-                                            <td><a class="text-success" href="#"><i class="bi bi-plus-square-fill"></i></a></td>
-                                            <td><a class="text-warning" href="home.php?idempresa=<?php echo $dato->idempresa; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                            <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="home.php?idActivo=<?php echo $dato->idempresa; ?>"><i class="bi bi-trash-fill"></i></a></td>
+                                            <td><a class="text-warning" href="home.php?fecha=<?php echo $dato->fecha; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                            <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="home.php?fecha=<?php echo $dato->fecha; ?>"><i class="bi bi-trash-fill"></i></a></td>
                                         </tr>
 
                                     <?php

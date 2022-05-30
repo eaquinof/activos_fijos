@@ -13,3 +13,10 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
 CREATE INDEX `fk_rol_idx` ON `Activos`.`Usuario` (`idRol` ASC);
+
+ALTER TABLE activos.usuario
+ ADD CONSTRAINT fk_rol FOREIGN KEY (idRol) REFERENCES activos.rol (idRol) ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+ALTER TABLE activos.usuario
+ DROP Usuariocol,
+ ADD empresa INT NOT NULL DEFAULT '1' AFTER idRol;
