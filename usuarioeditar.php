@@ -42,14 +42,20 @@ include "config/conexion.php";
                     <div class="mb-3">
                         <label class="form-label">Rol: </label>
                         <select class="input-select"
-                            style="background-color: #fff; border-radius: 0px 3px 3px 0px; color: #000; margin-bottom: 1em; padding:16px; width: 575px;"
+                            style="background-color: #fff; border-radius: 0px 3px 3px 0px; color: #000; margin-bottom: 1em; padding:5px; width: 100%;"
                             id="rol" name="rol" required>
                             <option value="0"> Seleccione rol </option>
                             <?php
                                 $record = $bd->query("SELECT * FROM activos.rol");
                                 while($row = $record->fetch()) {
+                                    $selected = "";
+                                    if($row['idRol'] == $usuario->idRol) {
+                                        $selected = "selected";
+                                    } else {
+                                        $selected = "";
+                                    }
                                     //echo '<option value="'.$row['idRol'].'">'.$row['Descripcion'].'</option>';
-                                    echo '<option value="'.$row['idRol'].'">'.$row['Descripcion'].'</option>';
+                                    echo '<option value="'.$row['idRol'].'"'.$selected.'>'.$row['Descripcion'].'</option>';
                                 }
                             ?>
 
