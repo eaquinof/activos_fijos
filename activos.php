@@ -8,7 +8,7 @@ $sql = "SELECT (a.valor * tc.tasa) AS 'tasaCambio', a.idActivo, a.No_Serial, a.D
   WHERE tc.codmoneda = m.codmoneda 
   group by a.valor;";
 
-$valorMoneda = '';
+$valorMoneda = 'GTQ';
 
 if (isset($_POST['selectData'])) {
     $valorMoneda = $_POST['selectData'];
@@ -48,7 +48,6 @@ $Activo = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                         <select class="input-select"
                                             style="background-color: #fff; border-radius: 0px 3px 3px 0px; color: #000; padding:5px;"
                                             id="moneda" name="moneda" required>
-                                                <option value=""></option>
                                             <?php
                                                 $record = $bd->query("SELECT m.* FROM activos.moneda m;");
                                                 while($row = $record->fetch()) {

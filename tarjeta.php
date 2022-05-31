@@ -2,7 +2,6 @@
 
     include "config/conexion.php";
     
-
     $sentencia = $bd->query("SELECT e.idempleado,
                                     e.nombre,
                                     e.apellido,
@@ -20,9 +19,17 @@
                             WHERE     e.Departamento = d.idDepto
                             AND e.idEmpleado = aa.idEmpleado
                             AND a.idActivo = aa.idActivo
-                            AND e.idEmpleado = 1;");
+                            AND e.idEmpleado = ". $_GET['idempleado'].";");
     $tarjeta = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
+    $sentenciadatosEmpleado = $bd->query("SELECT e.idEmpleado,
+                                        e.Nombre AS 'nombre',
+                                        e.Apellido,
+                                        d.Descripcion depto
+                                    FROM activos.empleado e, activos.departamento d
+                                    WHERE e.departamento = d.iddepto
+                                    AND e.idEmpleado = ".$_GET['idempleado'].";");
+    $datosEmpleado = $sentenciadatosEmpleado->fetchAll(PDO::FETCH_OBJ);
     ob_start();  //Guardar en variable cache
 
 ?>
@@ -46,12 +53,26 @@
     
                 <div class="card">
                 <div class="container-fluid bg-primary" style="text-align:center;" style="font-style: bolic;" style="color:white;">
-                    REPORTE DE ACTIVOS FIJOS 
+                   TARJETA DE RESPONSABILIDAD 
                     <br> </br>
+                    <?php
+                        foreach($datosEmpleado as $d) {
+                    ?>
+                        <p style="text-transform: uppercase;">
+                            <?php 
+                                echo "EMPLEADO: " . $d->nombre;
+                                echo " "; 
+                                echo "DEPARTAMENTO: " . $d->depto; 
+                            ?> 
+                        </p>
+                    <?php 
+                        }; 
+                    ?>
+                    
                     <?php
                         $DateAndTime = date('m-d-Y');  
                         echo "Fecha de Generación: $DateAndTime.";
-                     ?>
+                     ?> 
                 </div>
                 <div class="p-4">
                     <table class="table align-middle">

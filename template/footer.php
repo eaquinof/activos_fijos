@@ -16,7 +16,7 @@
 
     <script type="text/javascript">
       $(document).ready(function () {
-        $('#moneda').on('change', function (e) {
+        $('#moneda').on('change', function () {
             const selectData = $(this).val(); 
             $.ajax({
                 type: "POST",
@@ -26,6 +26,17 @@
                 // console.log(json);
                 $("#main").html(json);
             });
+        });
+
+        $('#departamento').on('change', function() {
+          const selectDep = $(this).val();
+          $.ajax({
+            type: "POST",
+            url: "asignaractivos.php",
+            data: {'iddep': selectDep},
+          }).done(function(e) {
+            $("#main").html(e);
+          });
         });
       });
     </script>
