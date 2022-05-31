@@ -7,11 +7,12 @@
     include '../config/conexion.php';
     $idActivo = $_POST['idActivo'];
     $Descripcion = $_POST['txtDescripcion'];
+    $Serial = $_POST['txtSerial'];
     $Valor = $_POST['txtValor'];
     $FechaCompra = $_POST['txtFechaCompra'];
 
-    $sentencia = $bd->prepare("UPDATE Activo SET Descripcion = ?, Valor = ?, FechaCompra = ? where idActivo = ?;");
-    $resultado = $sentencia->execute([$Descripcion, $Valor, $FechaCompra, $idActivo]);
+    $sentencia = $bd->prepare("UPDATE Activo SET Descripcion = ?, No_Serial = ?, Valor = ?, FechaCompra = ? where idActivo = ?;");
+    $resultado = $sentencia->execute([$Descripcion, $Serial, $Valor, $FechaCompra, $idActivo]);
 
     if ($resultado === TRUE) {
         header('Location: ../activos.php?mensaje=editado');

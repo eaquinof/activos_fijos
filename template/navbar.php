@@ -41,7 +41,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['empresa'])) {
         <div class="dropdown me-4">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-person"></i> 
-                <span class="text-uppercase"> <?=$user['codusr'];?></span>    |    <span class="text-uppercase"><?=$empresaResult['nombreempresa'];?></span>
+                <span class="text-uppercase"> <?=$user['codusr'];?></span>    |   <i class="bi bi-building"></i> <span class="text-uppercase"><?=$empresaResult['nombreempresa'];?></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>

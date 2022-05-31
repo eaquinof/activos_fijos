@@ -46,7 +46,7 @@ include "config/conexion.php";
                             id="rol" name="rol" required>
                             <option value="0"> Seleccione rol </option>
                             <?php
-                                $record = $bd->query("SELECT * FROM Activos.rol");
+                                $record = $bd->query("SELECT * FROM activos.rol");
                                 while($row = $record->fetch()) {
                                     //echo '<option value="'.$row['idRol'].'">'.$row['Descripcion'].'</option>';
                                     echo '<option value="'.$row['idRol'].'">'.$row['Descripcion'].'</option>';

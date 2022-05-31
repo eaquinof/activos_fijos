@@ -17,6 +17,24 @@
             </li>
 
             <li>
+                <a href="Departamentos.php" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi-collection"></i> <span class="ms-1 d-none d-sm-inline">Departamentos</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="empleados.php" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi-person-badge-fill"></i> <span class="ms-1 d-none d-sm-inline">Empleados</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="moneda.php" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi-cash-coin"></i> <span class="ms-1 d-none d-sm-inline">Moneda</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="tasascambio.php" class="nav-link px-0 align-middle">
                     <i class="fs-4 bi-currency-exchange"></i> <span class="ms-1 d-none d-sm-inline">Tasa de Cambio</span>
                 </a>
@@ -29,9 +47,15 @@
             </li>
 
             <li>
-                <a href="home.php" class="nav-link px-0 align-middle">
+                <a href="asignaractivos.php" class="nav-link px-0 align-middle">
                     <i class="fs-4 bi-journal-check"></i> <span class="ms-1 d-none d-sm-inline">Asignar Activo</span> </a>
             </li>
+            
+            <li>
+                <a href="asignaciones.php" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi-card-checklist""></i> <span class="ms-1 d-none d-sm-inline">Asignaciones</span> </a>
+            </li>
+
         </ul>
     </div>
 </div>

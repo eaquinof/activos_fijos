@@ -1,5 +1,5 @@
 <?php
-    print_r($_POST);
+    //print_r($_POST);
 
     if($_POST["pass"] != $_POST["pass2"]){
         header('Location: ../usuariocrear.php?mensaje=diferente');

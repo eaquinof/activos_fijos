@@ -19,10 +19,11 @@ $tasa = $sentencia->fetchAll(PDO::FETCH_OBJ);
                     <!-- fin alerta -->
                     <div class="card">
                         <div class="card-header">
-                        <tr>
-                            <td>Tasas de Cambio &nbsp;</td>
-                            <td><a class="text-success" href="#"><i class="bi bi-plus-square-fill"></i></a></td>
-                        </tr>    
+                            <tr>
+                                <td>Tasas de Cambio &nbsp;</td>
+                                <td><a class="text-success" href="tasacamcrear.php"><i
+                                            class="bi bi-plus-square-fill"></i></a></td>
+                            </tr>
                         </div>
                         <div class="p-4">
                             <table class="table align-middle">
@@ -42,15 +43,17 @@ $tasa = $sentencia->fetchAll(PDO::FETCH_OBJ);
                                     foreach ($tasa as $dato) {
                                     ?>
 
-                                        <tr>
-                                            <td scope="row"><?php echo $dato->codmoneda; ?></td>
-                                            <td><?php echo $dato->divisa; ?></td>
-                                            <td><?php echo $dato->simbolo; ?></td>
-                                            <td><?php echo $dato->tasa; ?></td>
-                                            <td><?php echo $dato->fecha; ?></td>
-                                            <td><a class="text-warning" href="home.php?fecha=<?php echo $dato->fecha; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                            <td><a onclick="return confirm('Estas seguro de eliminar?');" class="text-danger" href="home.php?fecha=<?php echo $dato->fecha; ?>"><i class="bi bi-trash-fill"></i></a></td>
-                                        </tr>
+                                    <tr>
+                                        <td scope="row"><?php echo $dato->codmoneda; ?></td>
+                                        <td><?php echo $dato->divisa; ?></td>
+                                        <td><?php echo $dato->simbolo; ?></td>
+                                        <td><?php echo $dato->tasa; ?></td>
+                                        <td><?php echo $dato->fecha; ?></td>
+                                        <td><a onclick="return confirm('Estas seguro de eliminar?');"
+                                                class="text-danger"
+                                                href="controllers/eliminartasacam.php?codmoneda=<?php echo $dato->codmoneda; ?>?fecha=<?php echo $dato->fecha; ?>"><i
+                                                    class="bi bi-trash-fill"></i></a></td>
+                                    </tr>
 
                                     <?php
                                     }

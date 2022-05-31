@@ -32,6 +32,11 @@ include "config/conexion.php";
                         value="<?php echo $activo->Descripcion; ?>">
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Serial: </label>
+                        <input type="text" class="form-control" name="txtSerial" required 
+                        value="<?php echo $activo->No_Serial; ?>">
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Valor: </label>
                         <input type="number" class="form-control" name="txtValor" autofocus required
                         value="<?php echo $activo->Valor; ?>">
